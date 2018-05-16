@@ -7,20 +7,20 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null , new { @class = "btn btn-primary" })  
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Naam)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VerkoopPrijs)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Soort.Naam)
-        </th>
-        <th></th>
+
+
+
+<table class="table-striped table-condensed table">
+    <tr class="">
+        <th>@Html.DisplayNameFor(model => model.Naam)</th>
+        <th>@Html.DisplayNameFor(model => model.VerkoopPrijs)</th>
+        <th>@Html.DisplayNameFor(model => model.Soort.Naam)</th>
+        <th>Edit</th>
+        <th>Details</th>
+        <th>Foto</th>
+        <th>Delete</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -34,11 +34,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.Soort.Naam)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PlantNr }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PlantNr }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PlantNr })
-        </td>
+        <td>@Html.ActionLink("Edit", "Edit", new { id = item.PlantNr }, new { @class = "btn btn-info" })</td>
+        <td>@Html.ActionLink("Details", "Details", new { id = item.PlantNr }, new { @class = "btn btn-warning" })</td>
+        <td>@Html.ActionLink("Foto Uploaden", "UpLoaden", new { id = item.PlantNr }, new { @class = "btn btn-success" })</td>
+        <td>@Html.ActionLink("Delete", "Delete", new { id = item.PlantNr }, new { @class = "btn btn-danger" })</td>
     </tr>
 }
 
