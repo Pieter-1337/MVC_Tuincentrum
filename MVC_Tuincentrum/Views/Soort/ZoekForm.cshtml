@@ -1,0 +1,52 @@
+﻿@model MVC_Tuincentrum.Models.ZoekSoortViewModel
+
+@{
+    ViewBag.Title = "ZoekForm";
+}
+
+<div class="row">
+
+<h2>ZoekForm</h2>
+
+@using (Html.BeginForm("BeginNaam", "Soort", FormMethod.Get))
+{
+    <div class="col-md-6">
+        <div class="form-group">
+        @Html.LabelFor(m => m.beginNaam)
+        @Html.ValidationMessageFor(m => m.beginNaam, "", new { @class = "alert-danger" })
+        @Html.TextBoxFor(m => m.beginNaam , new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="col-md-12">
+        <button type="submit" value="zoeken" class="btn btn-primary">Zoek</button>
+    </div>
+}
+
+@if(Model.Soorten != null)
+{
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Soort</th>
+                    <th>Magazijn</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach(var soort in Model.Soorten)
+                {
+                    <tr>
+                        <td>@soort.Naam</td>
+                        <td>@soort.MagazijnNr</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+</div>
