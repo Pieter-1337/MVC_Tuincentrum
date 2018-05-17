@@ -1,0 +1,26 @@
+﻿@model int
+
+@{
+    ViewBag.Title = "Foto Uploaden";
+}
+
+<div class="row">
+<h2>@ViewBag.Title</h2>
+
+
+
+@using(Html.BeginForm("FotoUpload", "Plant", new { id = Model}, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+   <div class="col-md-12">
+    <div class="upload-btn-wrapper">
+        <button class="btn btn-primary">Kies een foto</button>
+        <input type="file" name="foto" />
+    </div>
+    <div class="upload-btn-wrapper">
+    <input type="submit" value="Uploaden" class="btn btn-success" />
+    </div>
+    
+   </div>
+}
+
+</div>

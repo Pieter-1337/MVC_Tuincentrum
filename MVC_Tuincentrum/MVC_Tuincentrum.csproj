@@ -186,6 +186,16 @@
     </Compile>
     <Compile Include="Models\ZoekSoortViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Teksten.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Teksten.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Teksten.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Teksten.fr.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\SoortService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +205,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\default.jpg" />
+    <Content Include="Images\francais.png" />
+    <Content Include="Images\nederlands.png" />
+    <Content Include="Images\tuincentrum.png" />
     <Content Include="Models\Tuincentrum.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Tuincentrum.Context.cs</LastGenOutput>
@@ -260,9 +274,11 @@
     <Content Include="Views\Leverancier\Edit.cshtml" />
     <Content Include="Views\Leverancier\Index.cshtml" />
     <Content Include="Views\Soort\ZoekForm.cshtml" />
+    <Content Include="Views\Plant\UpLoaden.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Fotos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -279,6 +295,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Teksten.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Teksten.fr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Teksten.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Teksten.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

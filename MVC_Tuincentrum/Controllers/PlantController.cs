@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.IO;
 using System.Web.Mvc;
 using MVC_Tuincentrum.Models;
 
@@ -131,6 +132,32 @@ namespace MVC_Tuincentrum.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpGet]
+        public ViewResult UpLoaden(int id)
+        {
+            return View(id);
+        }
+
+        public ActionResult FotoUpload(int id)
+        {
+            if(Request.Files.Count > 0)
+            {
+                var foto = Request.Files[0];
+                var absoluutPadnaarDir = this.HttpContext.Server.MapPath("~/Images/Fotos");
+                var absoluutPadnaarFoto = Path.Combine(absoluutPadnaarDir, id + ".jpg");
+                foto.SaveAs(absoluutPadnaarFoto);
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public ContentResult ImageOrDefault(int id)
+        {
+            var imagePath = "/Images/Fotos/" + id + ".jpg";
+            var imageSrc = System.IO.File.Exists(HttpContext.Server.MapPath("~/" + imagePath)) ? imagePath : "/Images/default.jpg";
+            return Content(imageSrc);
         }
     }
 }

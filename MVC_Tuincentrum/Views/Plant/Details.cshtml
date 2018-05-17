@@ -1,14 +1,15 @@
 ﻿@model MVC_Tuincentrum.Models.Plant
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Details plant: " + Model.Naam;
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>Plant</h4>
+    
     <hr />
+
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Naam)
@@ -34,9 +35,20 @@
             @Html.DisplayFor(model => model.Soort.Naam)
         </dd>
 
+        <dt>Afbeelding</dt>
+        <dd>
+            @{
+                var imagesource = Html.Action("ImageOrDefault", "Plant", new
+                {
+                    id = Model.PlantNr
+                });
+            }
+            <img src="@Url.Content("~"+imagesource.ToString())" alt="@Model.Naam" height="64" />
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PlantNr }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlantNr }, new { @class = "btn btn-warning"}) 
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary"})
 </p>

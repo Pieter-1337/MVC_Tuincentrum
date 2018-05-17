@@ -9,8 +9,9 @@ namespace MVC_Tuincentrum.Models
 {
     public class PlantProperties
     {
-        [Range(0, 1000)]
-        [HiddenInput()]
+        [Display(ResourceType = typeof(Resources.Teksten), Name = "LabelPrijs" )]
+        [Range(0, 1000, ErrorMessageResourceType =typeof(Resources.Teksten), ErrorMessageResourceName = "RangePrijs")]
+        //[HiddenInput()]
         public decimal VerkoopPrijs { get; set; }
 
         [ScaffoldColumn(false)]
