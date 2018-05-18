@@ -154,7 +154,9 @@
     <Compile Include="Controllers\LeverancierController.cs" />
     <Compile Include="Controllers\PlantController.cs" />
     <Compile Include="Controllers\SoortController.cs" />
+    <Compile Include="Controllers\StatistiekController.cs" />
     <Compile Include="DecimalModelBinder.cs" />
+    <Compile Include="Filters\StatistiekActionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -275,6 +277,7 @@
     <Content Include="Views\Leverancier\Index.cshtml" />
     <Content Include="Views\Soort\ZoekForm.cshtml" />
     <Content Include="Views\Plant\UpLoaden.cshtml" />
+    <Content Include="Views\Statistiek\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

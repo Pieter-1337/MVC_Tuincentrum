@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVC_Tuincentrum.Models;
+using MVC_Tuincentrum.Filters;
 
 namespace MVC_Tuincentrum.Controllers
 {
+    [OverrideActionFilters]
     public class LeverancierController : Controller
     {
         private MVCTuinCentrumEntities db = new MVCTuinCentrumEntities();

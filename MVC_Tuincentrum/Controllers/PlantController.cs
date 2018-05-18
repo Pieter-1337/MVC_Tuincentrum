@@ -8,9 +8,11 @@ using System.Web;
 using System.IO;
 using System.Web.Mvc;
 using MVC_Tuincentrum.Models;
+using MVC_Tuincentrum.Filters;
 
 namespace MVC_Tuincentrum.Controllers
 {
+    
     public class PlantController : Controller
     {
         private MVCTuinCentrumEntities db = new MVCTuinCentrumEntities();
